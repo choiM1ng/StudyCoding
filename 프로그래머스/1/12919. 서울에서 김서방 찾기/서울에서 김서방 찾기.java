@@ -1,5 +1,12 @@
 class Solution {
     public String solution(String[] seoul) {
-        return "김서방은 " + java.util.Arrays.asList(seoul).indexOf("Kim") + "에 있다";
+        int index = 0;
+        for(int i=0; i<seoul.length; i++){
+            if(seoul[i].equals("Kim")) {
+                index = i; 
+                break;
+            }
+        }
+        return "김서방은 " + index + "에 있다";
     }
 }
