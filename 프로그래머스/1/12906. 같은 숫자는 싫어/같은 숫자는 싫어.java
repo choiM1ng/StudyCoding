@@ -1,19 +1,14 @@
-import java.util.Arrays;
+import java.util.Stack;
 
 public class Solution {
-    public int[] solution(int []arr) {
-        int[] answer = new int[arr.length];
-        answer[0] = arr[0];
-        
-        int now = arr[0];
-        int index = 0;
-        
-        for(int i=1; i<arr.length; i++){
-            if(arr[i] != now){
-                answer[++index] = arr[i];
-                now = arr[i];
+    public Stack<Integer> solution(int []arr) {
+        Stack<Integer> stack = new Stack<>();
+        for(int num : arr){
+            if(stack.size() == 0 || stack.peek() != num){
+                stack.push(num);
             }
         }
-        return Arrays.copyOfRange(answer, 0, index+1);
+        
+        return stack;
     }
 }
