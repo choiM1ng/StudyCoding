@@ -7,9 +7,8 @@ class Solution {
         
         int count = 1;
         for(int i=1; i<s.length(); i++){
-            String temp = s.substring(i, i+1);
             for(int j=i-1; j>=0; j--){
-                if(temp.equals(s.substring(j, j+1))) {
+                if(s.charAt(i) == (s.charAt(j))) {
                     answer[i] = count;
                     break;
                 }
