@@ -1,18 +1,17 @@
 class Solution {
     public String solution(String s, int n) {
-        String answer = "";
-        for(int i=0; i<s.length(); i++){
-            char c = s.charAt(i);
-            if(c == ' ') answer += " ";
-            else {
-                for(int j=0; j<n; j++){
-                    if(c == 'z') c = 'a';
-                    else if(c == 'Z') c = 'A';
-                    else c++;
-                }
-                answer += Character.toString(c);
+        StringBuilder answer = new StringBuilder();
+       
+        for (char c : s.toCharArray()){
+            if(c == ' ') {
+                answer.append(c);
+            } else {
+                char base = Character.isUpperCase(c) ? 'A' : 'a';
+                c = (char) ((c - base + n) % 26 + base);
+                answer.append(c);
             }
         }
-        return answer;
+        
+        return answer.toString();
     }
 }
